@@ -1,0 +1,90 @@
+<!--Holds the Menu bar at the left side of the screen-->
+<div class="span2">
+
+    <ul class="nav nav-list well well-small" >       
+        <% if current_user.has_role? :Admin  %>
+            <li class="nav-header">Access Mgmt </li>
+            <li><%= link_to raw('<i class="icon-user"></i>Users'), users_path %></li>
+            <li><%= link_to raw('<i class="icon-tasks"></i>Roles'), roles_path %></li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Config: </li>
+
+            <li><%= link_to raw('<i class="icon-bookmark"></i>Products'), products_path %> </li>
+            <li><%= link_to raw('<i class="icon-map-marker"></i>Zones'), zones_path  %></li>
+            <li><%= link_to raw('<i class="icon-home"></i>Stations'), stations_path  %></li>
+            <li><%= link_to raw('<i class="icon-pencil"></i>Tanks'), tanks_path %></li>
+            <li><%= link_to raw('<i class="icon-tint"></i>Pumps'), pumps_path %></li>
+            <li><%= link_to raw('<i class="icon-backward"></i>Suppliers'), suppliers_path %></li>
+            <li><%= link_to raw('<i class="icon-calendar"></i>SalesPeriods'), sales_periods_path %> </li>
+            <li><%= link_to raw('<i class="icon-user"></i>Employees'), employees_path %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Histories</li>
+            <li><%= link_to raw('<i class="icon-gift"></i>Product Prices') %> </li>
+            <li><%= link_to raw('<i class="icon-magnet"></i>Dipping') %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Sales</li>
+            <li><%= link_to raw('<i class="icon-barcode"></i>Dashboard') %> </li>
+            <li><%= link_to raw('<i class="icon-fire"></i>Sales') %> </li>
+            <li><%= link_to raw('<i class="icon-film"></i>Approval') %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Supplies</li>
+            <li><%= link_to raw('<i class="icon-exclamation-sign"></i>Delivery') %> </li>
+            <li><%= link_to raw('<i class="icon-film"></i>Approval') %> </li>
+            <li class="divider"></li>
+            <!--<li><a href="#/deliverydisburse"><i class="icon-bell"></i>Disburse</a> </li>-->
+
+            <li class="nav-header">Reports</li>
+            <li><%= link_to raw('<i class="icon-ban-circle"></i>Capacity Report') %> </li>
+            <li><%= link_to raw('<i class="icon-book"></i>Sales Report') %> </li>
+            <li><%= link_to raw('<i class="icon-asterisk"></i>Stock Report') %> </li>
+            <li><%= link_to raw('<i class="icon-download"></i>Trend Analysis') %> </li>
+            <li><%= link_to raw('<i class="icon-user"></i>SalesPerson Report') %> </li>
+
+        <% end %> 
+
+        <% if current_user.has_role? :Manager  %>
+            
+            <li class="nav-header">Histories</li>
+            <li><%= link_to raw('<i class="icon-gift"></i>Product Prices') %> </li>
+            <li><%= link_to raw('<i class="icon-magnet"></i>Dipping') %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Sales</li>
+            <li><%= link_to raw('<i class="icon-barcode"></i>Dashboard') %> </li>
+            <li><%= link_to raw('<i class="icon-fire"></i>Sales') %> </li>
+            <li><%= link_to raw('<i class="icon-film"></i>Approval') %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Supplies</li>
+            <li><%= link_to raw('<i class="icon-exclamation-sign"></i>Delivery') %> </li>
+            <li><%= link_to raw('<i class="icon-film"></i>Approval') %> </li>
+            <li class="divider"></li>
+            <!--<li><a href="#/deliverydisburse"><i class="icon-bell"></i>Disburse</a> </li>-->
+
+            <li class="nav-header">Reports</li>
+            <li><%= link_to raw('<i class="icon-ban-circle"></i>Capacity Report') %> </li>
+            <li><%= link_to raw('<i class="icon-book"></i>Sales Report') %> </li>
+            <li><%= link_to raw('<i class="icon-asterisk"></i>Stock Report') %> </li>
+            <li><%= link_to raw('<i class="icon-download"></i>Trend Analysis') %> </li>
+            <li><%= link_to raw('<i class="icon-user"></i>SalesPerson Report') %> </li>
+
+        <% end %>      
+
+        <% if current_user.has_role? :SalesPerson  %>
+            
+            <li class="nav-header">Sales</li>
+            <li><%= link_to raw('<i class="icon-barcode"></i>Dashboard') %> </li>
+            <li><%= link_to raw('<i class="icon-fire"></i>Sales') %> </li>
+            <li class="divider"></li>
+
+            <li class="nav-header">Supplies</li>
+            <li><%= link_to raw('<i class="icon-exclamation-sign"></i>Delivery') %> </li>
+
+        <% end %>      
+        
+    </ul>
+</div>

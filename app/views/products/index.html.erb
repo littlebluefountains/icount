@@ -1,0 +1,21 @@
+<h1>Products</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Code #</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Unit Price</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_product_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @products.each do |product|  %>
+		<tr>
+			<td><%= link_to product.code, product_path(product) %></td>
+			<td><%= product.name  %></td>
+			<td><%= product.description %></td>
+			<td><%= product.unitprice  %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_product_path(product), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), product, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

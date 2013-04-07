@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Role:</b>
+  <%= @role.name %>
+</p>
+<p>
+  <b>Category:</b>
+  <%= @role.category %>
+</p>
+
+
+<%= link_to 'All Roles', roles_path %> |
+<%= link_to 'Edit Role', edit_role_path(@role) %> |
+<%= link_to 'Delete Role', role_path(@role), :method => 'delete', :confirm => 'Are you sure?' %>

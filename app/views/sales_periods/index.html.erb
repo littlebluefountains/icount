@@ -1,0 +1,21 @@
+<h1>Sales Periods</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Start Time</th>
+		<th>End Time</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_sales_period_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @sales_periods.each do |sales_period|  %>
+		<tr>
+			<td><%= link_to sales_period.name, sales_period_path(sales_period) %></td>
+			<td><%= sales_period.description  %></td>
+			<td><%= sales_period.start_time  %></td>
+			<td><%= sales_period.end_time %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_sales_period_path(sales_period), class: "btn btn-success" %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), sales_period, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger" %></td>
+		</tr>
+	<% end %>
+</table>

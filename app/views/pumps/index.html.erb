@@ -1,0 +1,21 @@
+<h1>Pumps</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Code #</th>
+		<th>Name</th>
+		<th>Tank</th>
+		<th>Serial #</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_pump_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @pumps.each do |pump|  %>
+		<tr>
+			<td><%= link_to pump.code, pump_path(pump) %></td>
+			<td><%= pump.name  %></td>
+			<td><%= pump.tank.name %></td>
+			<td><%= pump.serial_no  %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_pump_path(pump), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), pump, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

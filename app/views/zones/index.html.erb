@@ -1,0 +1,19 @@
+<h1>Zones</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Code #</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_zone_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @zones.each do |zone|  %>
+		<tr>
+			<td><%= link_to zone.code, zone_path(zone) %></td>
+			<td><%= zone.name  %></td>
+			<td><%= zone.description %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_zone_path(zone), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), zone, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

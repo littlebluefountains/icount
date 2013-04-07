@@ -1,0 +1,23 @@
+<h1>Employees</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Employee #</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_employee_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @employees.each do |employee|  %>
+		<tr>
+			<td><%= link_to employee.employee_no, employee_path(employee) %></td>
+			<td><%= employee.first_name  %></td>
+			<td><%= employee.last_name  %></td>
+			<td><%= employee.email  %></td>
+			<td><%= employee.phone  %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_employee_path(employee), class: "btn btn-success" %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), employee, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger" %></td>
+		</tr>
+	<% end %>
+</table>

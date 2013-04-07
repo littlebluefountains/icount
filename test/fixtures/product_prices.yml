@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  product: 
+  old_price: 9.99
+  new_price: 9.99
+  user: 
+
+two:
+  product: 
+  old_price: 9.99
+  new_price: 9.99
+  user: 

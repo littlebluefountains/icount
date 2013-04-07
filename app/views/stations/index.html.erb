@@ -1,0 +1,23 @@
+<h1>Stations</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Code</th>
+		<th>Name</th>
+		<th>Zone</th>
+		<th>Address</th>
+		<th>State</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_station_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @stations.each do |station|  %>
+		<tr>
+			<td><%= link_to station.code, station_path(station) %></td>
+			<td><%= station.name  %></td>
+			<td><%= station.zone.name %></td>
+			<td><%= station.full_address %></td>
+			<td><%= station.state %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_station_path(station), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), station, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

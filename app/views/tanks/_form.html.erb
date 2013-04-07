@@ -1,0 +1,20 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @tank do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :product %>
+			<%= f.association :station %>
+			<%= f.input :code, placeholder: 'Code' %>
+			<%= f.input :name, placeholder: 'Name' %>
+			<%= f.input :capacity, placeholder: 'Capacity' %>
+		</fieldset>
+			
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', tanks_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>

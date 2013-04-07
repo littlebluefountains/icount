@@ -1,0 +1,22 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @employee do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.input :employee_no, placeholder: 'Employee #' %>
+			<%= f.input :first_name, placeholder: 'First Name' %>
+			<%= f.input :last_name, placeholder: 'Last Name' %>
+			<%= f.input :phone, placeholder: 'Phone' %>
+			<%= f.input :email, placeholder: 'Email' %>
+		</fieldset>
+		
+		
+		
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', employees_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>

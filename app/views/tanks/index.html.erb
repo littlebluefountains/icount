@@ -1,0 +1,23 @@
+<h1>Tanks</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Code #</th>
+		<th>Name</th>
+		<th>Capacity</th>
+		<th>Product</th>
+		<th>Zone</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_tank_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @tanks.each do |tank|  %>
+		<tr>
+			<td><%= link_to tank.code, tank_path(tank) %></td>
+			<td><%= tank.name  %></td>
+			<td><%= tank.capacity %></td>
+			<td><%= tank.product.name  %></td>
+			<td><%= tank.station.name  %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_tank_path(tank), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), tank, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,21 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @pump do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :tank %>
+			<%= f.input :code, placeholder: 'Code' %>
+			<%= f.input :name, placeholder: 'Name' %>
+			<%= f.input :serial_no, placeholder: 'Serial #', label: 'Serial No:' %>
+			<%= f.input :manufacturer, placeholder: 'Manufacturer' %>
+			<%= f.input :model, placeholder: 'Model' %>
+		</fieldset>
+			
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', pumps_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>

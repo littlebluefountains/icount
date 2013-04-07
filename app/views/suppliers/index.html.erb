@@ -1,0 +1,25 @@
+<h1>Suppliers</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Company</th>
+		<th>Contact Name</th>
+		<th>Address</th>
+		<th>Email</th>
+		<th>Mobile</th>
+		<th>Phone</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_supplier_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @suppliers.each do |supplier|  %>
+		<tr>
+			<td><%= link_to supplier.name, supplier_path(supplier) %></td>
+			<td><%= supplier.contact  %></td>
+			<td><%= supplier.address  %></td>
+			<td><%= supplier.email  %></td>
+			<td><%= supplier.phone  %></td>
+			<td><%= supplier.mobile  %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_supplier_path(supplier), class: "btn btn-success" %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), supplier, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger" %></td>
+		</tr>
+	<% end %>
+</table>

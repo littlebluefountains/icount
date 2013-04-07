@@ -1,0 +1,21 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @station do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :zone %>
+			<%= f.input :code, placeholder: 'Code' %>
+			<%= f.input :name, placeholder: 'Name' %>
+			<%= f.input :address, placeholder: 'Address', as: :text, input_html: { rows: 3 } %>
+			<%= f.input :city, placeholder: 'City' %>
+			<%= f.input :state, placeholder: 'State' %>
+		</fieldset>
+			
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', stations_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>
