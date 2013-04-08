@@ -40,6 +40,8 @@ set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
+ruby set :default_environment, { 'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH" }
+
 set :scm, "git"
 set :repository, "https://github.com/littlebluefountains/icount.git"
 set :branch, "master"
