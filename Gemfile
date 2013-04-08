@@ -33,9 +33,9 @@ gem 'thin'
 #gem 'toastr-rails'
 gem "gritter", "1.0.3"
 
-# group :production do
-# 	gem 'pg', '0.12.2'
-# end
+group :production do
+	gem 'pg', '0.12.2'
+end
 
-#gem 'unicorn'
+gem 'unicorn'
 gem 'capistrano'
