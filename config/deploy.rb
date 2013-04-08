@@ -37,7 +37,7 @@ server "178.79.186.24", :web, :app, :db, primary: true
 set :application, "icount-granalturaoil"
 set :user, "deployer"
 set :deploy_to, "/home/#{user}/apps/#{application}"
-set :deploy via, :remote cache
+set :deploy_via, :remote cache
 set :use_sudo, false
 
 set :scm, "git"
