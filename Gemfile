@@ -36,3 +36,6 @@ gem "gritter", "1.0.3"
 # group :production do
 # 	gem 'pg', '0.12.2'
 # end
+
+#gem 'unicorn'
+gem 'capistrano'
