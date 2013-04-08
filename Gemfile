@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 
 group :development do
 	gem 'sqlite3'
+	gem 'thin'
 	#gem 'pg', '0.12.2'
 end
 
@@ -29,7 +30,7 @@ gem 'jquery-rails'
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.9"
 gem "rolify", ">= 3.2.0"
-gem 'thin'
+
 #gem 'toastr-rails'
 gem "gritter", "1.0.3"
 
