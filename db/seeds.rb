@@ -5,3 +5,11 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Role.create([{name: 'Admin'}, {name: 'Manager'}, {name: 'SalesPerson'}])
+
+
+  	#create user
+  	user = User.create!(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com')
+
+  	#assign Admin role to user
+  	user.roles << Role.find_by_name('Admin')
