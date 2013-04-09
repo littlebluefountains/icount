@@ -6,12 +6,13 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-group :development do
-	gem 'sqlite3'
-	gem 'thin'
-	#gem 'pg', '0.12.2'
-end
+# group :development do
+# 	#gem 'sqlite3'
+# 	gem 'thin'
+# 	#gem 'pg', '0.12.2'
+# end
 
+gem 'thin'
 gem 'simple_form'
 
 # Gems used only for assets and not required
@@ -34,9 +35,11 @@ gem "rolify", ">= 3.2.0"
 #gem 'toastr-rails'
 gem "gritter", "1.0.3"
 
-group :production do
-	gem 'pg', '0.12.2'
-end
+gem 'pg', '0.12.2'
+
+# group :production do
+# 	gem 'pg', '0.12.2'
+# end
 
 gem 'unicorn'
 gem 'capistrano'
