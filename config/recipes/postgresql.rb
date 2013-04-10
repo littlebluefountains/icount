@@ -4,13 +4,13 @@ set_default(:postgresql_password) { Capistrano::CLI.password_prompt "PostgreSQL 
 set_default(:postgresql_database) { "#{application}_production" }
 
 namespace :postgresql do
-	# desc "Install the latest stable release of PostgreSQL"
-	# task :install, roles: :db, only: {primary: true} do
-	# 	run "#{sudo} add-apt-repository ppa:pitti/postgresql"
-	# 	run "#{sudo} apt-get -y update"
-	# 	run "#{sudo} apt-get -y install postgresql libpq-dev"
-	# end 
-	# after "deploy:install", "postgresql:install"
+	desc "Install the latest stable release of PostgreSQL"
+	task :install, roles: :db, only: {primary: true} do
+		run "#{sudo} add-apt-repository ppa:pitti/postgresql"
+		run "#{sudo} apt-get -y update"
+		run "#{sudo} apt-get -y install postgresql libpq-dev"
+	end 
+	after "deploy:install", "postgresql:install"
 
 	desc "Create a database for this application."
 	task :create_database, roles: :db, only: {primary: true} do
