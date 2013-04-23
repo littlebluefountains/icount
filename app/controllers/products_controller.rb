@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :startup, except: [:index, :create, :new]
+  #before_filter :update_product_price, only: [:create, :update]
 
   def index
   	@products = Product.all
@@ -16,7 +17,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-  	@product = Product.create(params[:product])
+  	@product = Product.new(params[:product])
 
   	if @product.save
   		redirect_to products_path, gflash: {success: 'Product saved successfully'}
@@ -43,4 +44,8 @@ class ProductsController < ApplicationController
   def startup
   	@product = Product.find(params[:id])
   end
+
+  # def update_product_prices
+  #   product_price = 
+  # end
 end

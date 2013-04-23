@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  waybill_number: MyString
+  date_supplied: 2013-04-17
+  quantity_supplied: 1
+  station: 
+  supplier: 
+  product: 
+
+two:
+  waybill_number: MyString
+  date_supplied: 2013-04-17
+  quantity_supplied: 1
+  station: 
+  supplier: 
+  product: 

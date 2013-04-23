@@ -1,0 +1,27 @@
+<h1>Waybills</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Waybill #</th>
+		<th>Station</th>
+		<th>Date Supplied</th>
+		<th>Supplier</th>
+		<th>Product</th>
+		<th>Qty Supplied</th>
+		<th>Total Cost</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_waybill_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @waybills.each do |waybill|  %>
+		<tr>
+			<td><%= link_to waybill.waybill_number, waybill_path(waybill) %></td>
+			<td><%= waybill.station.name  %></td>
+			<td><%= waybill.date_supplied %></td>
+			<td><%= waybill.supplier.name %></td>
+			<td><%= waybill.product.name %></td>
+			<td><%= waybill.quantity_supplied %></td>
+			<td></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_waybill_path(waybill), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), waybill, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

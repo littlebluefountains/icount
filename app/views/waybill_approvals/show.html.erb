@@ -1,0 +1,9 @@
+<h1>WaybillApprovals#show</h1>
+<p>Find me in app/views/waybill_approvals/show.html.erb</p>
+<ol>
+	<% @waybill_approval.stock_additions.each do |f| %>
+		<li>Previous: <%= f.previous_quantity %></li>
+		<li>Current: <%= f.current_quantity %></li>
+		<li>Added: <%= f.quantity_added %></li>
+	<% end -%>
+</ol>

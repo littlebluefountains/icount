@@ -16,7 +16,7 @@ before_filter :startup, except: [:index, :create, :new]
   end
 
   def create
-  	@sales_period = SalesPeriod.create(params[:sales_period])
+  	@sales_period = SalesPeriod.new(params[:sales_period])
 
   	if @sales_period.save
   		redirect_to sales_periods_path, gflash: {success: 'SalesPeriod saved successfully'}

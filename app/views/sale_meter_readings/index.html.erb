@@ -1,0 +1,24 @@
+<h1>Sales</h1>
+
+<table class = "table table-striped">
+	<tr>
+		<th>Pump</th>
+		<th>Station</th>
+		<th>Product</th>
+		<th>Opening Reading</th>
+		<th>Closing Reading</th>
+		<th>Liters Sold</th>
+		<th>Sales Date</th>
+		<th>SalesPeriod</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_sale_meter_reading_path, class: "btn btn-inverse" %></th>
+	</tr>
+
+	<% @sales.each do |sale| %>
+		<tr>
+			
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_sale_meter_reading_path(sale), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), sale, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>
+

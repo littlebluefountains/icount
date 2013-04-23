@@ -1,0 +1,25 @@
+<div class = "form-horizontal span6">
+	<%= simple_form_for @sale do |f| %>
+		<fieldset>
+			<legend>Basic Information: New Sales</legend>
+			<%= f.association :pump %>
+			<%= f.association :employee %>
+			<%= f.association :sales_period %>
+		</fieldset>
+
+		<fieldset>
+			<legend>Meter Reading Details</legend>
+			<%= f.input :opening_reading %>
+			<%= f.input :closing_reading %>
+			<%= f.input :sales_date %>
+			<%= f.input :comments, as: :text, input_html: { rows: 3} %>
+		</fieldset>
+
+		<div class='form-actions'>
+			<%= f.submit "Save", class: 'btn btn-primary' %>
+			<%= link_to "Back", sale_meter_readings_path, class: 'btn btn-inverse' %>
+		</div>
+
+
+	<% end %>
+</div>

@@ -1,0 +1,42 @@
+<h1>Capacity Reports For Tanks</h1>
+
+<div class="span5 well">
+	<h3>Stations</h3>
+	<table class="table table-striped">
+		<tr>
+			<th>Station</th>
+			<th># of Tanks</th>
+			<th># of Pumps</th>
+			<th>Capacity</th>
+		</tr>
+		<% @stations.each do |station|  %>
+			<tr>
+				<td><%= station.name  %></td>
+				<td><%= station.tank_count %></td>
+				<td><%= station.pump_count %></td>
+				<td><%= station.tank_capacities  %></td>
+				
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<div class="span5 well">
+	<h3>Tanks</h3>
+	<table class="table table-striped">
+		<tr>
+			<th>Tank #</th>
+			<th>Station</th>
+			<th>Capacity</th>
+		</tr>
+		<% @tanks.each do |tank|  %>
+			<tr>
+				<td><%= tank.name  %></td>
+				<td><%= tank.station.name %></td>
+				<td><%= tank.capacity  %></td>
+				
+			</tr>
+		<% end %>
+	</table>
+</div>
+

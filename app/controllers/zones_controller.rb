@@ -16,7 +16,7 @@ class ZonesController < ApplicationController
   end
 
   def create
-  	@zone = Zone.create(params[:zone])
+  	@zone = Zone.new(params[:zone])
 
   	if @zone.save
   		redirect_to zones_path, gflash: {success: 'Zone saved successfully'}

@@ -16,7 +16,7 @@ before_filter :startup, except: [:index, :create, :new]
   end
 
   def create
-  	@pump = Pump.create(params[:pump])
+  	@pump = Pump.new(params[:pump])
 
   	if @pump.save
   		redirect_to pumps_path, gflash: {success: 'Pump saved successfully'}

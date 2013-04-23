@@ -1,0 +1,30 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @waybill do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :station %>
+			<%= f.association :supplier %>
+		</fieldset>
+
+		<fieldset>
+			<legend>Supply Details</legend>
+			<%= f.input :waybill_number, placeholder: 'Waybill Number', label: 'Waybill #' %>
+			<%= f.input :description, as: :text, input_html: { rows: 3 }  %>
+			<%= f.input :date_supplied %>
+		</fieldset>
+
+		<fieldset>
+			<legend>Product Quantity</legend>
+			<%= f.association :product %>
+			<%= f.input :quantity_supplied %>
+		</fieldset>
+			
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', waybills_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>

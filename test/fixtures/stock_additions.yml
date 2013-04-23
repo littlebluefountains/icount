@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantity_added: 1.5
+  previous_quantity: 1.5
+  current_quantity: 1.5
+  waybill: 
+  stock: 
+
+two:
+  quantity_added: 1.5
+  previous_quantity: 1.5
+  current_quantity: 1.5
+  waybill: 
+  stock: 

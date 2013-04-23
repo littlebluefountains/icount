@@ -16,7 +16,7 @@ before_filter :startup, except: [:index, :create, :new]
   end
 
   def create
-  	@station = Station.create(params[:station])
+  	@station = Station.new(params[:station])
 
   	if @station.save
   		redirect_to stations_path, gflash: {success: 'Station saved successfully'}

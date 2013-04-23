@@ -1,9 +1,17 @@
 Icount2::Application.routes.draw do
 
+  get "reports/capacity"
+  get "reports/stock"
+  get "reports/stock_addition"
+  get "reports/sales"
+  get "reports/trends"
+
   resources :users
   resources :roles
   resources :products, :zones, :stations, :tanks, :pumps
-  resources :suppliers, :sales_periods, :employees
+  resources :suppliers, :sales_periods, :employees, :product_prices
+  resources :waybills, :waybill_approvals
+  resources :sale_meter_readings
 
   devise_for :users, skip: [:registrations, :sessions]
 

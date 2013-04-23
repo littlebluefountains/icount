@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130403190627) do
+ActiveRecord::Schema.define(:version => 20130421003500) do
 
   create_table "employees", :force => true do |t|
     t.string   "first_name"
@@ -68,6 +68,23 @@ ActiveRecord::Schema.define(:version => 20130403190627) do
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
 
+  create_table "sale_meter_readings", :force => true do |t|
+    t.float    "opening_reading"
+    t.float    "closing_reading"
+    t.float    "liters_sold"
+    t.text     "comments"
+    t.date     "sales_date"
+    t.integer  "pump_id"
+    t.integer  "employee_id"
+    t.integer  "sales_period_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "sale_meter_readings", ["employee_id"], :name => "index_sale_meter_readings_on_employee_id"
+  add_index "sale_meter_readings", ["pump_id"], :name => "index_sale_meter_readings_on_pump_id"
+  add_index "sale_meter_readings", ["sales_period_id"], :name => "index_sale_meter_readings_on_sales_period_id"
+
   create_table "sales_periods", :force => true do |t|
     t.string   "name"
     t.string   "description"
@@ -89,6 +106,45 @@ ActiveRecord::Schema.define(:version => 20130403190627) do
   end
 
   add_index "stations", ["zone_id"], :name => "index_stations_on_zone_id"
+
+  create_table "stock_additions", :force => true do |t|
+    t.float    "quantity_added"
+    t.float    "previous_quantity"
+    t.float    "current_quantity"
+    t.integer  "waybill_id"
+    t.integer  "stock_id"
+    t.integer  "tank_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "stock_additions", ["stock_id"], :name => "index_stock_additions_on_stock_id"
+  add_index "stock_additions", ["tank_id"], :name => "index_stock_additions_on_tank_id"
+  add_index "stock_additions", ["waybill_id"], :name => "index_stock_additions_on_waybill_id"
+
+  create_table "stock_deductions", :force => true do |t|
+    t.float    "quantity_deducted"
+    t.float    "previous_quantity"
+    t.float    "current_quantity"
+    t.integer  "sale_meter_reading_id"
+    t.integer  "stock_id"
+    t.integer  "tank_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "stock_deductions", ["sale_meter_reading_id"], :name => "index_stock_deductions_on_sale_meter_reading_id"
+  add_index "stock_deductions", ["stock_id"], :name => "index_stock_deductions_on_stock_id"
+  add_index "stock_deductions", ["tank_id"], :name => "index_stock_deductions_on_tank_id"
+
+  create_table "stocks", :force => true do |t|
+    t.float    "current_stock"
+    t.integer  "tank_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "stocks", ["tank_id"], :name => "index_inventory_stocks_on_tank_id"
 
   create_table "suppliers", :force => true do |t|
     t.string   "name"
@@ -140,6 +196,25 @@ ActiveRecord::Schema.define(:version => 20130403190627) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "waybills", :force => true do |t|
+    t.string   "waybill_number"
+    t.string   "description"
+    t.date     "date_supplied"
+    t.boolean  "approved"
+    t.float    "quantity_supplied"
+    t.float    "overrage_quantity"
+    t.float    "shortage_quantity"
+    t.integer  "station_id"
+    t.integer  "supplier_id"
+    t.integer  "product_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "waybills", ["product_id"], :name => "index_waybills_on_product_id"
+  add_index "waybills", ["station_id"], :name => "index_waybills_on_station_id"
+  add_index "waybills", ["supplier_id"], :name => "index_waybills_on_supplier_id"
 
   create_table "zones", :force => true do |t|
     t.string   "name"

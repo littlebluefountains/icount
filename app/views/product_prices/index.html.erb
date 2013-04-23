@@ -1,0 +1,22 @@
+<h1>Product Prices </h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Product</th>
+		<th>Old Price</th>
+		<th>New Price</th>
+		<th>Date Changed</th>
+		<th>Changed By</th>
+	</tr>
+	<% @product_prices.each do |price| %>
+		<tr>
+			<td><%= price.product.name %></td>
+			<td><%= price.old_price %></td>
+			<td><%= price.new_price %></td>
+			<td><%= price.created_at %></td>
+			<td><%= price.user_id %></td>
+		</tr>
+
+	<% end %>
+</table>
+

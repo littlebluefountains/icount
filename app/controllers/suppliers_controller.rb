@@ -16,7 +16,7 @@ class SuppliersController < ApplicationController
   end
 
   def create
-  	@supplier = Supplier.create(params[:supplier])
+  	@supplier = Supplier.new(params[:supplier])
 
   	if @supplier.save
   		redirect_to suppliers_path, gflash: {success: 'Supplier saved successfully'}

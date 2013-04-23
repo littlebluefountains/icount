@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantity_deducted: 1.5
+  previous_quantity: 1.5
+  current_quantity: 1.5
+  sales_meter_reading: 
+  stock: 
+
+two:
+  quantity_deducted: 1.5
+  previous_quantity: 1.5
+  current_quantity: 1.5
+  sales_meter_reading: 
+  stock: 

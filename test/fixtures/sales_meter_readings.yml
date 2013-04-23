@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  opening_reading: 1.5
+  closing_reading: 1.5
+  liters_sold: 1.5
+  comments: MyText
+  pump: 
+  sales_person: 
+  sales_block: 
+
+two:
+  opening_reading: 1.5
+  closing_reading: 1.5
+  liters_sold: 1.5
+  comments: MyText
+  pump: 
+  sales_person: 
+  sales_block: 

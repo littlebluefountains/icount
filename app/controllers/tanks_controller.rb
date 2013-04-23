@@ -16,7 +16,7 @@ class TanksController < ApplicationController
   end
 
   def create
-  	@tank = Tank.create(params[:tank])
+  	@tank = Tank.new(params[:tank])
 
   	if @tank.save
   		redirect_to tanks_path, gflash: {success: 'Tank saved successfully'}

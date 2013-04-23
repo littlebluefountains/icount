@@ -16,7 +16,7 @@ before_filter :startup, except: [:index, :create, :new]
   end
 
   def create
-  	@employee = Employee.create(params[:employee])
+  	@employee = Employee.new(params[:employee])
 
   	if @employee.save
   		redirect_to employees_path, gflash: {success: 'Employee saved successfully'}
