@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130421003500) do
+ActiveRecord::Schema.define(:version => 20130424171457) do
+
+  create_table "dipping_histories", :force => true do |t|
+    t.integer  "tank_id"
+    t.float    "measured_volume"
+    t.date     "measurement_date"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "dipping_histories", ["tank_id"], :name => "index_dipping_histories_on_tank_id"
 
   create_table "employees", :force => true do |t|
     t.string   "first_name"
@@ -56,6 +66,16 @@ ActiveRecord::Schema.define(:version => 20130421003500) do
   end
 
   add_index "pumps", ["tank_id"], :name => "index_pumps_on_tank_id"
+
+  create_table "report_users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.boolean  "receive_sms"
+    t.boolean  "receive_mail"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "roles", :force => true do |t|
     t.string   "name"

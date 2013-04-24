@@ -1,0 +1,19 @@
+<h1>Dipping Histories</h1>
+
+<table class="table table-striped">
+	<tr>
+		<th>Tank #</th>
+		<th>Measured Volume</th>
+		<th>Measurement Date</th>
+		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_dipping_history_path, class: "btn btn-inverse" %></th>
+	</tr>
+	<% @dipping_histories.each do |dipping|  %>
+		<tr>
+			<td><%= link_to dipping.tank.code, dipping_history_path(dipping) %></td>
+			<td><%= dipping.measured_volume  %></td>
+			<td><%= dipping.measurement_date %></td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_dipping_history_path(dipping), class: 'btn btn-success' %> |
+          <%= link_to raw('<i class="icon-trash"></i>'), dipping, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
+		</tr>
+	<% end %>
+</table>

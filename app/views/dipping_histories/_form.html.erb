@@ -1,0 +1,18 @@
+<div class = 'form-horizontal span6'>
+	<%= simple_form_for @dipping_history do |f| %>
+		<!--%= render partial: 'layouts/error', object: @employee %-->
+
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :tank %>
+			<%= f.input :measured_volume, placeholder: 'Enter Measured Volume' %>
+			<%= f.input :measurement_date %>
+		</fieldset>
+			
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', dipping_histories_path, class: 'btn btn-inverse' %>
+		  </div>	
+
+	<% end %>
+</div>

@@ -1,0 +1,20 @@
+<h3>Email Notification: Daily Stock Report for <%= Time.now %></h3>
+
+<table>
+	<tr>
+		<th>Station</th>
+		<th>Product</th>
+		<th>Qty In Stock</th>
+		<th>Date</th>
+	</tr>
+
+	<% @sales.each do |sale| %>
+		<tr>
+			<td><%= sale.station.name %></td>
+			<td><%= sale.product.name %></td>
+			<td><%= sale.quantity_in_stock %></td>
+			<td><%= sale.created_at %></td>
+			
+		</tr>
+	<% end %>
+</table>

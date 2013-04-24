@@ -1,5 +1,11 @@
 Icount2::Application.routes.draw do
 
+  resources :dipping_histories
+
+
+  resources :report_users
+
+
   get "reports/capacity"
   get "reports/stock"
   get "reports/stock_addition"

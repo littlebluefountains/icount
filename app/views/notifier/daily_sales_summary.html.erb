@@ -1,0 +1,27 @@
+<h3>Email Notification: Daily Sales Report for <%= Time.now %></h3>
+
+<table>
+	<tr>
+		<th>Station</th>
+		<th>Product</th>
+		<th>Qty Sold</th>
+		<th>Unit Price</th>
+		<th>Amount of Sales</th>
+		<th>Sales Period</th>
+		<th>Sales Date</th>
+	</tr>
+
+	<% @sales.each do |sale| %>
+		<tr>
+			<td><%= sale.station.name %></td>
+			<td><%= sale.product.name %></td>
+			<td><%= sale.liters_sold %></td>
+			<td><%= sale.product.unit_price %></td>
+			<td><%=  %></td>
+			<td><%= sale.sales_date %></td>
+			<td><%= sale.sales_period %></td>
+			
+		</tr>
+	<% end %>
+</table>
+

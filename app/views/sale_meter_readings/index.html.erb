@@ -13,9 +13,16 @@
 		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_sale_meter_reading_path, class: "btn btn-inverse" %></th>
 	</tr>
 
-	<% @sales.each do |sale| %>
+	<% @sale_meter_readings.each do |sale| %>
 		<tr>
-			
+			<td><%= sale.pump.name %></td>
+			<td><%= sale.pump.tank.station.name %></td>
+			<td><%= sale.pump.tank.product.name %></td>
+			<td><%= sale.opening_reading %></td>
+			<td><%= sale.closing_reading %></td>
+			<td><%= sale.liters_sold %></td>
+			<td><%= sale.sales_date %></td>
+			<td><%= sale.sales_period.name %></td>
 			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_sale_meter_reading_path(sale), class: 'btn btn-success' %> |
           <%= link_to raw('<i class="icon-trash"></i>'), sale, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
 		</tr>

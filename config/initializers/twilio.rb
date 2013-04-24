@@ -1,0 +1,1 @@
+TWILIO_CONFIG = {'sid' => 'AC2e1226e5c3a0736aa53baee4312f2ffc', 'from' => '6412434260', 'token' => 'a9217aa17f9ebd9eeb46bc951dd07288'}

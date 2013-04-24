@@ -1,11 +1,13 @@
 class SaleMeterReadingsController < ApplicationController
 	before_filter :startup, except: [:index, :new, :create]
+
   def index
-  	@sales = SaleMeterReading.all
+  	#@sale_meter_readings = SaleMeterReading.all
+    @sale_meter_readings = SaleMeterReading.with_tanks_and_station
   end
 
   def new
-  	@sale = SaleMeterReading.new
+  	@sale_meter_reading = SaleMeterReading.new
   end
 
   def show
@@ -15,9 +17,11 @@ class SaleMeterReadingsController < ApplicationController
   end
 
   def create
-  	@sale = SaleMeterReading.new(params[:sale])
+  	@sale_meter_reading = SaleMeterReading.new(params[:sale_meter_reading])
 
-  	if @sale.save
+    #calculate_liters_sold
+
+  	if @sale_meter_reading.save
   		redirect_to sale_meter_readings_path, gflash: {succes: 'Meter Reading saved successfully'}
   	else
   		render action: 'edit'	
@@ -25,7 +29,9 @@ class SaleMeterReadingsController < ApplicationController
   end
 
   def update
-  	if @sale.update_attributes(params[:sale])
+    
+
+  	if @sale_meter_reading.update_attributes(params[:sale_meter_reading])
   		redirect_to sale_meter_readings_path, gflash: {success: 'Meter Reading updated successfully'}
   	else
   		render action: 'edit'
@@ -33,12 +39,14 @@ class SaleMeterReadingsController < ApplicationController
   end
 
   def destroy
-  	@sales.destroy
+  	@sale_meter_reading.destroy
   	redirect_to sale_meter_readings_path, gflash: { success: 'Meter Reading deleted successfully'}
   end
 
   private
   def startup
-  	@sale = SaleMeterReading.find(params[:id])
+  	@sale_meter_reading = SaleMeterReading.find(params[:id])
   end
+
+  
 end

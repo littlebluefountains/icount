@@ -1,0 +1,30 @@
+<h3>Email Notification: Supply Report for <%= Time.now %></h3>
+
+<p>
+  <b>Waybill #:</b>
+  <%= @waybill.waybill_number %>
+</p>
+<p>
+  <b>Station:</b>
+  <%= @waybill.station.name %>
+</p>
+<p>
+  <b>Product:</b>
+  <%= @waybill.product.name %>
+</p>
+<p>
+  <b>Quantity Supplied:</b>
+  <%= @waybill.quantity_supplied %>
+</p>
+<p>
+  <b>Date Supplied:</b>
+  <%= @waybill.date_of_supply %>
+</p>
+<p>
+  <b>Total Cost:</b>
+  <%= @waybill.total_cost %>
+</p>
+<p>
+  <b>Supplier:</b>
+  <%= @waybill.supplier.name %>
+</p>

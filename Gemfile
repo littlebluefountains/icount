@@ -44,3 +44,4 @@ gem 'pg', '0.12.2'
 
 gem 'unicorn'
 gem 'capistrano'
+gem 'twilio-ruby'

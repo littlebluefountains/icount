@@ -1,4 +1,7 @@
 class WaybillsController < ApplicationController
+  #include SmsNotifier
+  require 'sms_notifier'
+
   before_filter :startup, except: [:index, :create, :new]
 
   def index
@@ -20,6 +23,10 @@ class WaybillsController < ApplicationController
 
   	if @waybill.save
   		redirect_to waybills_path, gflash: { success: 'Waybill has been successfully created'}
+
+      #sms sms to all registered users
+      SmsNotifier::supply_sms_summary @waybill
+      #supply_sms_summary @waybill
   	else
   		render action: 'edit'
   	end

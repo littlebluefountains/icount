@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @report_user.name %>
+</p>
+<p>
+  <b>Email:</b>
+  <%= @report_user.email %>
+</p>
+<p>
+  <b>Phone:</b>
+  <%= @report_user.phone %>
+</p>
+<p>
+  <b>Receive Email:</b>
+  <%= @report_user.receive_mail %>
+<br/>
+  <b>SMS:</b>
+  <%= @user.receive_sms %>
+</p>
+
+<%= link_to 'All Report Users', report_users_path %> |
+<%= link_to 'Edit User', edit_report_user_path(@report_user) %> |
+<%= link_to 'Delete User', report_user_path(@report_user), :method => 'delete', :confirm => 'Are you sure?' %>

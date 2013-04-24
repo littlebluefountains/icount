@@ -1,0 +1,21 @@
+
+
+<div class = 'form-horizontal span6'>
+  <%= simple_form_for(@report_user) do |f| %>
+    
+    <!--%= render partial: 'layouts/error', object: @report_user %-->
+    <fieldset>
+      <legend>Basic Information</legend>
+      <%= f.input :name, placeholder: 'FirstName and LastName' %>
+      <%= f.input :email, placeholder: 'Enter unique email' %>
+      <%= f.input :phone, placeholder: 'Format: +2348055968687' %>
+      <%= f.input :receive_mail %>
+      <%= f.input :receive_sms %>
+    </fieldset>
+    
+    <div class="form-actions">
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+      <%= link_to 'Back', report_users_path, class: 'btn btn-inverse' %>
+    </div>
+  <% end %>
+</div>
