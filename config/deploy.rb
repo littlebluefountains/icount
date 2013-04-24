@@ -12,8 +12,11 @@ load "config/recipes/check"
 server "178.79.186.24", :web, :app, :db, primary: true
 
 set :user, "deployer"
-#set :application, "icount_granalturaoil"
-set :application, "icount_granaltura"
+#set :application, "icount_granaltura"
+set :application, "icount_abeembolak"
+#set :application, "icount_bambol"
+
+
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
