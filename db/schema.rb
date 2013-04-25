@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424171457) do
+ActiveRecord::Schema.define(:version => 20130425055617) do
 
   create_table "dipping_histories", :force => true do |t|
     t.integer  "tank_id"
@@ -189,6 +189,12 @@ ActiveRecord::Schema.define(:version => 20130424171457) do
 
   add_index "tanks", ["product_id"], :name => "index_tanks_on_product_id"
   add_index "tanks", ["station_id"], :name => "index_tanks_on_station_id"
+
+  create_table "tenants", :force => true do |t|
+    t.string   "subdomain"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username",               :default => "", :null => false
