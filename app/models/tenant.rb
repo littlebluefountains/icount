@@ -6,7 +6,7 @@ class Tenant < ActiveRecord::Base
 
   def create_schema
   	#USING APARTMENT INSTRUCIONS: create database using subdomain value. When it create the DB, all the migrations are executed
-  	Apartment::Database.create('#{subdomain}')
+  	Apartment::Database.create(:subdomain)
 
   	#drop the tenant table from the subdomains
   	connection.execute("drop table #{self.class.table_name}")

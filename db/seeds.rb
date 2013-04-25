@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #create 3 tenants if not at subdomain schema but on public schema
-Tenant.create([{subdomain: 'granalturaloil'}, {subdomain: 'abeembolak'}, {subdomain: 'bambol'}]) if table_exists? :tenants
+Tenant.create([{subdomain: 'granalturaloil'}, {subdomain: 'abeembolak'}, {subdomain: 'bambol'}]) #if table_exists? :tenants
 
 #rewrite; the roles are created for each schema
 Role.create([{name: 'Admin'}, {name: 'Manager'}, {name: 'SalesPerson'}])

@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_tenant
 
-  def scope_current_tenant(&block)
-  	#current_tenant.scope_schema("public", &block)
-  	#Apartment::Database.switch('#{@current_tenant.subdomain}')
-  end
+  # def scope_current_tenant(&block)
+  # 	#current_tenant.scope_schema("public", &block)
+  # 	Apartment::Database.switch('#{@current_tenant.subdomain}')
+  # end
 
 end
