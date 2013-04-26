@@ -15,3 +15,6 @@
 /tmp
 
 /config/database.yml
+/config/misc/*
+
+Gemfile-Copy.lock

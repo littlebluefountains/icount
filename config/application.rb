@@ -60,6 +60,6 @@ module Icount2
     config.assets.version = '1.0'
 
     #configure Apartment to use a subdomain
-    config.middleware.use 'Apartment::Elevators::Subdomain'
+    #config.middleware.use 'Apartment::Elevators::Subdomain'
   end
 end
