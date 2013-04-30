@@ -16,5 +16,6 @@
 
 /config/database.yml
 /config/misc/*
+/assets/misc/*
 
 Gemfile-Copy.lock
