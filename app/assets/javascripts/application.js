@@ -16,4 +16,8 @@
 //= require gritter
 //= require_tree .
 
+@import "bootstrap";
+body { padding-top: 60px; }
+i { display: inline-block; }
+@import "bootstrap-responsive";
 
