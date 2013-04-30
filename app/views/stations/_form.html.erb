@@ -4,7 +4,7 @@
 
 		<fieldset>
 			<legend>Basic Information</legend>
-			<%= f.association :zone, class: 'select' %>
+			<%= f.association :zone%>
 			<%= f.input :code, placeholder: 'Code' %>
 			<%= f.input :name, placeholder: 'Name' %>
 			<%= f.input :address, placeholder: 'Address', as: :text, input_html: { rows: 3 } %>
