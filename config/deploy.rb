@@ -1,11 +1,11 @@
 #FROM RAILSCASTS
 require "bundler/capistrano"
 
-load "config/recipes/base"
-load "config/recipes/nginx"
-load "config/recipes/unicorn"
-load "config/recipes/postgresql"
-load "config/recipes/nodejs"
+# load "config/recipes/base"
+# load "config/recipes/nginx"
+# load "config/recipes/unicorn"
+# load "config/recipes/postgresql"
+# load "config/recipes/nodejs"
 load "config/recipes/rbenv"	#uncomment for fresh server install
 load "config/recipes/check"
 
