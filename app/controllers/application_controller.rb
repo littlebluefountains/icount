@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  load_and_authorize_resource
+  
   protect_from_forgery
   helper_method :subdomain, :current_account
   before_filter :set_logo  #, :validate_subdomain, authenticate_user!

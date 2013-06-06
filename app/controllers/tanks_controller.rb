@@ -1,4 +1,6 @@
 class TanksController < ApplicationController
+  load_and_authorize_resource
+
   before_filter :startup, except: [:index, :create, :new]
 
   def index

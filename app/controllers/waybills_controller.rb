@@ -2,6 +2,8 @@ class WaybillsController < ApplicationController
   #include SmsNotifier
   require 'sms_notifier'
 
+  load_and_authorize_resource
+
   before_filter :startup, except: [:index, :create, :new]
 
   def index

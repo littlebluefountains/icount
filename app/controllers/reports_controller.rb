@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  load_and_authorize_resource
+  
   def capacity
   	@tanks = Tank.order("station_id asc")
   	@stations = Station.order("name asc")

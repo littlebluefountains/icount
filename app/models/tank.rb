@@ -1,5 +1,5 @@
 class Tank < ActiveRecord::Base
-  before_save :humanize_attributes
+  #before_save :humanize_attributes
 
   validates :product_id, :station_id, :name, :code, :capacity, presence: true
 

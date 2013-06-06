@@ -1,5 +1,5 @@
 class Waybill < ActiveRecord::Base
-	before_save :humanize_attributes
+	#before_save :humanize_attributes
 
   scope :with_station_and_product, includes(:station, :product)
 

@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :startup, except: [:index, :create, :new]
   #before_filter :update_product_price, only: [:create, :update]
 

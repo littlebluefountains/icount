@@ -1,5 +1,7 @@
 class SaleMeterReadingsController < ApplicationController
-	before_filter :startup, except: [:index, :new, :create]
+	load_and_authorize_resource
+
+  before_filter :startup, except: [:index, :new, :create]
 
   def index
   	#@sale_meter_readings = SaleMeterReading.all

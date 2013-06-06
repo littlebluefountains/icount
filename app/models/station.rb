@@ -1,5 +1,5 @@
 class Station < ActiveRecord::Base
-  before_save :humanize_attributes
+  #before_save :humanize_attributes
 
   validates :zone_id, :code, :name, presence: true
   

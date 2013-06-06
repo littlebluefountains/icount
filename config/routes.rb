@@ -73,8 +73,8 @@ Icount2::Application.routes.draw do
   #     match '/' => 'home#index'
   # end
 
-  #root to: redirect('/login')
-  root to: 'accounts#index'
+  root to: redirect('/login')
+  #root to: 'accounts#index'
   #resources :accounts
   #root to: 'accounts#index'
   

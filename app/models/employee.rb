@@ -1,5 +1,5 @@
 class Employee < ActiveRecord::Base
-	before_save :humanize_attributes
+	#before_save :humanize_attributes
 
   validates :employee_no, :first_name, :last_name, presence: true
   

@@ -1,5 +1,7 @@
 class WaybillApprovalsController < ApplicationController
-	before_filter :startup, except: [:index]
+	load_and_authorize_resource
+
+  before_filter :startup, except: [:index]
 
   def index
   	#@waybill_approvals = Waybill.includes(:stock_additions).all
