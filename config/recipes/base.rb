@@ -13,4 +13,18 @@ namespace :deploy do
 		run "#{sudo} apt-get -y update"
 		run "#{sudo} apt-get -y install python-software-properties"
 	end
+
+	#custom tasks
+	#override the default deploy:cold
+	task :cold do
+		update
+		load_schema			#override the default migrations, use schema
+		start
+	end
+
+	task :load_schema, :roles => :app do
+		run "cd #{current_path}; rake db:schema:load"
+		run "cd #{current_path}; rake db:seed"	#added by me
+	end
+
 end
