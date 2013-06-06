@@ -7,7 +7,6 @@ load "config/recipes/unicorn"
 load "config/recipes/postgresql"
 load "config/recipes/nodejs"
 load "config/recipes/rbenv"	#uncomment for fresh server install
-load "deploy/assets"
 load "config/recipes/check"
 
 server "178.79.186.24", :web, :app, :db, primary: true
