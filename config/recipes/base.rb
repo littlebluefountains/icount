@@ -23,8 +23,8 @@ namespace :deploy do
 	end
 
 	task :load_schema, :roles => :app do
-		run "cd #{current_path}; rake db:schema:load"
-		run "cd #{current_path}; rake db:seed"	#added by me
+		run "cd #{current_path}; RAILS_ENV=production rake db:schema:load"
+		run "cd #{current_path}; RAILS_ENV=production rake db:seed"	#added by me
 	end
 
 end
