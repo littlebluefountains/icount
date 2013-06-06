@@ -18,10 +18,14 @@ Account.delete_all
 User.delete_all
 
 #create an Account for GAL
-account = Account.create!(name: 'GAL', subdomain: 'gal', website: 'www.granalturaltd.com', email: 'admin@gran-alturalimited.com')
+#account = Account.create!(name: 'GAL', subdomain: 'gal', website: 'www.granalturaltd.com', email: 'admin@gran-alturalimited.com')
+#create user
+#user = User.new(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
+
+account = Account.create!(name: 'Example', subdomain: 'example', website: 'www.example.com', email: 'admin@example.com')
 
 #create user
-user = User.new(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
+user = User.new(username: 'example_admin', password: '12345678', email: 'example.admin@example.com', super_admin: 'true')
 
 user.account = account
 
