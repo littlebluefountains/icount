@@ -1,0 +1,30 @@
+<h1>Approval for: <%= @sale_meter_reading.pump.name %></h1>
+
+<%= simple_form_for @sale_meter_reading, :url => sales_approval_path, :method => 'post' do |f| %>
+	<div class="span6">
+		<table class="table table-striped table-bordered">
+			<tr><td>Reference #</td><td><%= @sale_meter_reading.sales_reference_no  %></td></tr>
+			<tr><td>Pump</td><td><%= @sale_meter_reading.pump.name  %></td></tr>
+			<tr><td>Station</td><td><%= @sale_meter_reading.pump.tank.station.name  %></td></tr>
+			<tr><td>Product</td><td><%= @sale_meter_reading.pump.tank.product.code %></td></tr>
+			<tr><td>Opening Reading</td><td><%= @sale_meter_reading.opening_reading %></td></tr>
+			<tr><td>Closing Reading</td><td><%= @sale_meter_reading.closing_reading %></td></tr>
+			<tr><td>Liters Sold</td><td><%= @sale_meter_reading.liters_sold %></td></tr>
+			<tr><td>Sales Date</td><td><%= @sale_meter_reading.sales_date %></td></tr>
+			<tr><td>Sales Period</td><td><%= @sale_meter_reading.sales_period.name %></td></tr>
+
+			<!--tr>
+				<td>Is Approved?</td>
+				<td>
+					<%= f.input :is_approved?, as: :select, label: false %>
+				</td>
+			</tr-->
+
+		</table>
+		<!--div class='form-actions'>
+			<%= f.submit "Save", class: 'btn btn-primary' %>
+			<%= link_to "Back", list_sales_approval_path, class: 'btn btn-inverse' %>
+		</div-->
+		<%= link_to 'All Approvals', list_sales_approval_path %>
+	</div>
+<% end %>

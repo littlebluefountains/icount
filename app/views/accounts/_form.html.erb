@@ -1,0 +1,34 @@
+<div class = 'form-horizontal span6 well'>
+  <%= simple_form_for(@account) do |f| %>
+    
+    <%= render partial: 'layouts/error', object: @account %>
+
+    <%= f.input :name %>
+    <%= f.input :subdomain %>
+    <%= f.input :address, placeholder: 'Address', as: :text, input_html: { rows: 3 } %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :website %>
+
+
+    <h4>Admin User</h4><hr/>
+    <%= f.fields_for :owner do |owner| %>
+      <%= owner.input :username %>
+      <%= owner.input :email %>
+      <%= owner.input :password %>
+      <%= owner.input :password_confirmation %>
+      <%= owner.input :roles, label: 'Role', collection: User.valid_roles.map { |s| [s.to_s.humanize, s] } %>
+       <!--%= owner.association :roles, multiple: false %-->
+
+      
+
+      <!--= render "users/form", :user => owner %-->
+      <!-- INCLUDE ROLE_ID SELECTION -->
+    <% end -%>
+    
+    <div class="form-actions">
+      <%= f.submit "Save", class: 'btn btn-primary' %>
+      <%= link_to 'Back', accounts_path, class: 'btn btn-inverse' %>
+    </div>
+  <% end %>
+</div>

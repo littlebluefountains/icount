@@ -1,2 +1,12 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<h1>Tank: <%= @tank.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Code</td><td><%= @tank.code  %></td></tr>
+		<tr><td>Name</td><td><%= @tank.name  %></td></tr>
+		<tr><td>Capacity</td><td><%= @tank.capacity %></td></tr>
+		<tr><td>Product</td><td><%= @tank.product.name %></td></tr>
+		<tr><td>Station</td><td><%= @tank.station.name %></td></tr>
+
+	</table>
+	<%= link_to 'All Tanks', tanks_path %>
+</div>

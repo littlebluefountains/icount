@@ -1,2 +1,17 @@
-<h1>Waybills#show</h1>
-<p>Find me in app/views/waybills/show.html.erb</p>
+<h1>Waybill: <%= @waybill.waybill_number %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Waybill #</td><td><%= @waybill.waybill_number  %></td></tr>
+		<tr><td>Station</td><td><%= @waybill.station.name  %></td></tr>
+		<tr><td>Date Supplied</td><td><%= @waybill.date_supplied %></td></tr>
+		<tr><td>Supplier</td><td><%= @waybill.supplier.name %></td></tr>
+		<tr><td>Product</td><td><%= @waybill.product.name %></td></tr>
+
+		<tr><td>Quantity</td><td><%= @waybill.quantity_supplied  %></td></tr>
+		<tr><td>Tanker Driver</td><td><%= @waybill.tanker_driver %></td></tr>
+		<tr><td>Tanker Plate #</td><td><%= @waybill.tanker_plate_no %></td></tr>
+		<tr><td>Tanker Registration</td><td><%= @waybill.tanker_registration %></td></tr>
+
+	</table>
+	<%= link_to 'All Waybills', waybills_path %>
+</div>

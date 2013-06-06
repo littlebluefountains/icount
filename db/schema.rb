@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425055617) do
+ActiveRecord::Schema.define(:version => 20130605212430) do
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.string   "subdomain"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "accounts", ["subdomain"], :name => "index_accounts_on_subdomain"
+
+  create_table "accounts_users", :force => true do |t|
+    t.integer  "account_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "accounts_users", ["account_id"], :name => "index_accounts_users_on_account_id"
+  add_index "accounts_users", ["user_id"], :name => "index_accounts_users_on_user_id"
 
   create_table "dipping_histories", :force => true do |t|
     t.integer  "tank_id"
@@ -97,8 +120,10 @@ ActiveRecord::Schema.define(:version => 20130425055617) do
     t.integer  "pump_id"
     t.integer  "employee_id"
     t.integer  "sales_period_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "sales_reference_no"
+    t.boolean  "is_approved"
   end
 
   add_index "sale_meter_readings", ["employee_id"], :name => "index_sale_meter_readings_on_employee_id"
@@ -210,6 +235,9 @@ ActiveRecord::Schema.define(:version => 20130425055617) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.integer  "roles_mask"
+    t.integer  "account_id"
+    t.boolean  "super_admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
@@ -234,8 +262,11 @@ ActiveRecord::Schema.define(:version => 20130425055617) do
     t.integer  "station_id"
     t.integer  "supplier_id"
     t.integer  "product_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.string   "tanker_driver"
+    t.string   "tanker_plate_no"
+    t.string   "tanker_registration"
   end
 
   add_index "waybills", ["product_id"], :name => "index_waybills_on_product_id"

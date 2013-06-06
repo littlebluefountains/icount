@@ -1,2 +1,16 @@
-<h1>Sales#show</h1>
-<p>Find me in app/views/sales/show.html.erb</p>
+<h1>Sale for: <%= @sale_meter_reading.pump.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Reference #</td><td><%= @sale_meter_reading.sales_reference_no  %></td></tr>
+		<tr><td>Pump</td><td><%= @sale_meter_reading.pump.name  %></td></tr>
+		<tr><td>Station</td><td><%= @sale_meter_reading.pump.tank.station.name  %></td></tr>
+		<tr><td>Product</td><td><%= @sale_meter_reading.pump.tank.product.name %></td></tr>
+		<tr><td>Opening Reading</td><td><%= @sale_meter_reading.opening_reading %></td></tr>
+		<tr><td>Closing Reading</td><td><%= @sale_meter_reading.closing_reading %></td></tr>
+		<tr><td>Liters Sold</td><td><%= @sale_meter_reading.liters_sold %></td></tr>
+		<tr><td>Sales Date</td><td><%= @sale_meter_reading.sales_date %></td></tr>
+		<tr><td>Sales Period</td><td><%= @sale_meter_reading.sales_period.name %></td></tr>
+
+	</table>
+	<%= link_to 'All Sales', sale_meter_readings_path %>
+</div>

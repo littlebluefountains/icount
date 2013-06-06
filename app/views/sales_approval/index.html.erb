@@ -1,0 +1,38 @@
+<h1>Sales Approval</h1>
+
+<table class = "table table-striped">
+	<tr>
+		<!--th>#</th-->
+		<th>Pump</th>
+		<th>Station</th>
+		<th>Product</th>
+		<th>Opening</th>
+		<th>Closing</th>
+		<th>Liters Sold</th>
+		<th>Sales Date</th>
+		<th>IsApproved?</th>
+		<th></th>
+	</tr>
+
+	<% @sale_meter_readings.each do |sale| %>
+		<tr>
+			<!--td><%= link_to sale.sales_reference_no, show_sales_approval_path(sale) %></td-->
+			<td><%= sale.pump.name %></td>
+			<td><%= sale.pump.tank.station.name %></td>
+			<td><%= sale.pump.tank.product.code %></td>
+			<td><%= sale.opening_reading %></td>
+			<td><%= sale.closing_reading %></td>
+			<td><%= sale.liters_sold %></td>
+			<td><%= sale.sales_date %></td>
+			<td>
+				<% if sale.is_approved? %>
+					<span class="label label-info"><i class="icon-ok"></i></span>
+				<% else %>
+					<span class="label label-warning"><i class="icon-remove"></i></span>
+				<% end %>
+			</td>
+			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_sales_approval_path(sale), class: 'btn btn-success' %> </td>
+		</tr>
+	<% end %>
+</table>
+

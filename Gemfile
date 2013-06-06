@@ -1,5 +1,5 @@
-source 'https://rubygems.org'
-#source 'http://localhost:8808'
+#source 'https://rubygems.org'
+source 'http://localhost:8808'
 
 gem 'rails', '3.2.13'
 
@@ -34,7 +34,10 @@ end
 gem 'jquery-rails'
 gem "devise", ">= 2.2.3"
 gem "cancan", ">= 1.6.9"
-gem "rolify", ">= 3.2.0"
+#gem "rolify", ">= 3.2.0"
+#gem "canard"
+gem "role_model"
+gem "devise-basecamper"
 
 #gem 'toastr-rails'
 gem "gritter", "1.0.3"

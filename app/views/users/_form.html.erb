@@ -9,15 +9,18 @@
     <%= f.input :email %>
     <%= f.input :password %>
     <%= f.input :password_confirmation %>
-    <div class="control-group">
-        <%= f.label :roles, class: 'control-label' %>
-        <div class="controls">
-          <% Role.all.each do |role| %>
-            <%= radio_button_tag "user[role_ids][]", role.id, @user.role_ids.include?(role.id) %>
-            <%= role.name %><br />
-          <% end %>
-        </div>
 
+    <!--%= f.input :roles, label: 'Role', collection: User.valid_roles.map { |s| [s.to_s.humanize, s] } %-->
+
+    <% if current_user.has_role? :super_admin %>
+      <%= f.input :roles, label: 'Role', collection: User.get_roles(true) %>
+    <% else %>
+      <%= f.input :roles, label: 'Role', collection: User.get_roles(false) %>
+    <% end %>
+    <!--%= f.input :roles_mask, label: 'Role', collection: User.valid_roles, label_method: User.roles_as_string, 
+        value_method: User.valid_roles %-->
+    <!--%= f.collection_select :roles_mask, User.valid_roles, :to_s, :humanize %-->
+    
   
 
     

@@ -12,7 +12,7 @@
 
   <% @report_users.each do |user| %>
     <tr>
-      <td><%= user.name %></td>
+      <td><%= link_to user.name, report_user_path(user) %></td>
       <td><%= user.email %></td>
       <td><%= user.phone %></td>
       <td><%= user.receive_mail %></td>

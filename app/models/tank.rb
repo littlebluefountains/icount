@@ -1,6 +1,7 @@
 class Tank < ActiveRecord::Base
+  before_save :humanize_attributes
 
-  validates :product_id, :station_id, :name, :capacity, presence: true
+  validates :product_id, :station_id, :name, :code, :capacity, presence: true
 
   attr_accessible :capacity, :code, :name, :product_id, :station_id
 
@@ -9,6 +10,8 @@ class Tank < ActiveRecord::Base
 
   has_many :stocks
   has_many :pumps
+
+  has_many :dipping_histories
 
   #scopes
   #scope for tracking latest value of stock
@@ -19,6 +22,12 @@ class Tank < ActiveRecord::Base
   #class methods
   def pump_count
   	pumps.count
+  end
+
+  private
+  def humanize_attributes
+    write_attribute(:code, read_attribute(:code).upcase!)
+    write_attribute(:name, read_attribute(:name).upcase!)
   end
   # def self.by_station(id)
   # 	#where("station_id == ?", id)

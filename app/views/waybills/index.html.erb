@@ -8,7 +8,8 @@
 		<th>Supplier</th>
 		<th>Product</th>
 		<th>Qty Supplied</th>
-		<th>Total Cost</th>
+		<!--th>Total Cost</th-->
+		<th>Tanker</th>
 		<th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_waybill_path, class: "btn btn-inverse" %></th>
 	</tr>
 	<% @waybills.each do |waybill|  %>
@@ -19,7 +20,7 @@
 			<td><%= waybill.supplier.name %></td>
 			<td><%= waybill.product.name %></td>
 			<td><%= waybill.quantity_supplied %></td>
-			<td></td>
+			<td><%= waybill.tanker_plate_no %></td>
 			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_waybill_path(waybill), class: 'btn btn-success' %> |
           <%= link_to raw('<i class="icon-trash"></i>'), waybill, :confirm => 'Are you sure?', :method => :delete, class: 'btn btn-danger' %></td>
 		</tr>

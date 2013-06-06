@@ -4,6 +4,6 @@ class ProductPricesController < ApplicationController
   end
 
   def show
-  	@product_prices = ProductPrices.find(params[:id])
+  	@product_price = ProductPrices.find(params[:id])
   end
 end

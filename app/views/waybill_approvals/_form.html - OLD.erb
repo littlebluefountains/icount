@@ -1,0 +1,32 @@
+<div class="form-horizontal span6">
+	<%= simple_form_for @waybill_approval do |f| %>
+		<fieldset>
+			<legend>Meter Reading Details</legend>
+			<%= f.input :approved?, as: :select%>
+		</fieldset>
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.input :waybill_number, disabled: true %>
+			<%= f.association :station, label_method: :name, value_method: :id, disabled: true %>
+			<%= f.association :product, label_method: :name, value_method: :id , disabled: true %>
+		</fieldset>
+		<fieldset>
+			<legend>Current Stock</legend>
+			<%= %>
+			<%= %>
+		</fieldset>
+		<fieldset>
+			<legend>Disburse</legend>
+			<%= f.input :quantity_supplied, disabled: true %>
+			<%= f.simple_fields_for :stock_additions do |p| %>
+				<%= p.input :tank_id, collection: @tanks, label_method: :name, value_method: :id %>
+				<%= p.input :quantity_added %>
+			<% end %>
+		</fieldset>	
+		 <div class="form-actions">
+		    <%= f.submit "Save", class: 'btn btn-primary' %>
+		    <%= link_to 'Back', waybill_approvals_path, class: 'btn btn-inverse' %>
+		</div>
+
+	<% end %>
+</div>

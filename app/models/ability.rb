@@ -3,8 +3,26 @@ class Ability
 
   def initialize(user)
     user ||= User.new #guest user (not logged in)
-    if user.has_role? :Admin
+    # if user.has_role? nil
+    #     can :manage, :all
+    # end
+    if user.has_role? :super_admin
         can :manage, :all
+    end
+    if user.has_role? :admin
+        can :manage, :all
+        cannot :manage, Account
+    end
+    if user.has_role? :manager
+        can :manage, :all
+        cannot :manage, [Account, User]
+    end
+    if user.has_role? :sales
+        can [:read, :update], SalesMeterReading, Waybill
+        can [:read, :update], User do |account|
+            account.username == user.username
+            #account.email == user.email
+        end
     end
     if user.has_role? :user
         can [:read, :update], User do |account|

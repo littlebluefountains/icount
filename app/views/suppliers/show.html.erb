@@ -1,2 +1,13 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<h1>Supplier: <%= @supplier.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Name</td><td><%= @supplier.name  %></td></tr>
+		<tr><td>Contact</td><td><%= @supplier.contact  %></td></tr>
+		<tr><td>Address</td><td><%= @supplier.address  %></td></tr>
+		<tr><td>Email #</td><td><%= @supplier.email %></td></tr>
+		<tr><td>Phone</td><td><%= @supplier.phone %></td></tr>
+		<tr><td>Mobile</td><td><%= @supplier.mobile %></td></tr>
+
+	</table>
+	<%= link_to 'All Suppliers', suppliers_path %>
+</div>

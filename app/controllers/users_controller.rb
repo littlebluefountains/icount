@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.all
+    #@users = User.all
+    #restrict users to only users in the same company
+    if request.subdomain.nil? || request.subdomain == "gal"
+      @users = User.all
+    else
+      @users =User.account_users(current_account.id)
+    end 
   end
 
   def show
@@ -19,6 +25,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    #set account
+    @user.set_account(current_account.id)
 
     if @user.save
       #redirect_to @user, flash: {success: 'User successfully created'}
@@ -37,7 +46,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
 
-    params[:user][:role_ids] ||= []
+    #params[:user][:role_ids] ||= [] #for rolify
 
     if @user.update_attributes(user_params)
       sign_in(@user, :bypass => true) if @user == current_user

@@ -14,4 +14,6 @@ class StockAddition < ActiveRecord::Base
 
   #get most recent stock for each tank
   scope :recent_stock, order("tank_id asc, created_at desc").uniq
+
+  scope :latest_addition, lambda { |tank_id| where("tank_id = ?", tank_id).order("created_at desc") }
 end

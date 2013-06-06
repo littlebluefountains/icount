@@ -2,9 +2,11 @@
 	<%= simple_form_for @sale_meter_reading do |f| %>
 		<fieldset>
 			<legend>Basic Information: New Sales</legend>
+			<!--%= f.input :sales_reference_no %-->
 			<%= f.association :pump %>
 			<%= f.association :employee %>
 			<%= f.association :sales_period %>
+			<%= f.input :sales_reference_no %>
 		</fieldset>
 
 		<fieldset>

@@ -17,9 +17,14 @@
 			<td><%= waybill.product.name %></td>
 			<td><%= waybill.quantity_supplied %></td>
 			<td><%= waybill.date_supplied %></td>
-			<td><%= waybill.approved? %></td>
-			<td><%= link_to raw('<i class="icon-ok"></i>'), edit_waybill_approval_path(waybill), class: 'btn btn-info' %> |
-          <%= link_to raw('<i class="icon-remove"></i>'), waybill, class: 'btn btn-warning' %></td>
+			<td>
+				<% if waybill.approved? %>
+					<span class="label label-info"><i class="icon-ok"></i></span>
+				<% else %>
+					<span class="label label-warning"><i class="icon-remove"></i></span>
+				<% end %>
+			</td>
+			<td><%= link_to raw('<i class="icon-ok"></i>'), edit_waybill_approval_path(waybill), class: 'btn btn-success' %></td>
 		</tr>
 	<% end %>
 </table>

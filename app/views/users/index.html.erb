@@ -5,14 +5,16 @@
     <th>Username</th>
     <th>Email</th>
     <th>Role(s)</th>
+    <th>Station</th>
     <th><%= link_to raw('<i class="icon-plus icon-white"></i> Add'), new_user_path, class: "btn btn-inverse" %></th>
   </tr>
 
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.username %></td>
+      <td><%= link_to user.username, user_path(user) %></td>
       <td><%= user.email %></td>
-      <td><%=  %></td>
+      <td><%= user.role_name %></td>
+      <td><%= user.account.name %></td>
       <td><%= link_to raw('<i class="icon-edit"></i>'), edit_user_path(user), class: "btn btn-success" %> 
           <!--cannot delete gal_admin -->
           <% if user.username != "gal_admin" %>

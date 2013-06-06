@@ -20,6 +20,13 @@
 			<%= f.association :product %>
 			<%= f.input :quantity_supplied %>
 		</fieldset>
+
+		<fieldset>
+			<legend>Tanker Details</legend>
+			<%= f.input :tanker_driver, placeholder: 'Tanker Driver Name', label: 'Tanker Driver' %>
+			<%= f.input :tanker_plate_no, placeholder: 'Tanker Plate No.', label: 'Tanker Plate No.' %>
+			<%= f.input :tanker_registration, placeholder: 'Tanker Registration', label: 'Tanker #' %>
+		</fieldset>
 			
 		 <div class="form-actions">
 		    <%= f.submit "Save", class: 'btn btn-primary' %>

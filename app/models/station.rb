@@ -1,5 +1,7 @@
 class Station < ActiveRecord::Base
-  validates :zone_id, presence: true
+  before_save :humanize_attributes
+
+  validates :zone_id, :code, :name, presence: true
   
   belongs_to :zone
   has_many :waybills
@@ -8,7 +10,11 @@ class Station < ActiveRecord::Base
   attr_accessible :address, :city, :code, :name, :state, :zone_id
 
   def full_address
-  	"#{self.address}, #{self.city}"
+    full_address = ""
+    
+    full_address += self.address unless self.address.blank?
+    full_address += ", " + self.city unless self.city.blank?
+    #full_address += ", " + self.state unless self.state.blank?
   end
 
   def tank_count
@@ -25,5 +31,14 @@ class Station < ActiveRecord::Base
   		tot += t.pump_count
   	end
   	return tot
+  end
+
+  private
+  def humanize_attributes
+    write_attribute(:code, read_attribute(:code).upcase!)
+    write_attribute(:name, read_attribute(:name).humanize)
+    write_attribute(:state, read_attribute(:state).humanize) unless :state.blank?
+    write_attribute(:city, read_attribute(:city).humanize) unless :city.blank?
+    write_attribute(:address, read_attribute(:address).humanize) unless :address.blank?
   end
 end

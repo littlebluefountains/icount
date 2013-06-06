@@ -2,6 +2,7 @@
 
 <table class = "table table-striped">
 	<tr>
+		<!--th>#</th-->
 		<th>Pump</th>
 		<th>Station</th>
 		<th>Product</th>
@@ -15,6 +16,7 @@
 
 	<% @sale_meter_readings.each do |sale| %>
 		<tr>
+			<!--td><%= link_to sale.sales_reference_no, sale_meter_reading_path(sale) %></td-->
 			<td><%= sale.pump.name %></td>
 			<td><%= sale.pump.tank.station.name %></td>
 			<td><%= sale.pump.tank.product.name %></td>

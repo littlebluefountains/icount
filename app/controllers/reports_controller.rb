@@ -21,4 +21,10 @@ class ReportsController < ApplicationController
   	@unique_stocks = StockAddition.recent_stock
   	#@unique_stocks = @stocks.uniq
   end
+
+  def stock_deduction
+    @deduct_stocks = StockDeduction.all_stock_deduction
+    @deduct_unique_stocks = StockDeduction.recent_stock
+    #@unique_stocks = @stocks.uniq
+  end
 end

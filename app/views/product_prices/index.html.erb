@@ -10,10 +10,10 @@
 	</tr>
 	<% @product_prices.each do |price| %>
 		<tr>
-			<td><%= price.product.name %></td>
+			<td><%= link_to price.product.name, product_price_path(price)  %></td>
 			<td><%= price.old_price %></td>
 			<td><%= price.new_price %></td>
-			<td><%= price.created_at %></td>
+			<td><%= price.created_at.strftime("%d/%m/%Y") %></td>
 			<td><%= price.user_id %></td>
 		</tr>
 

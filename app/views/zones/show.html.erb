@@ -1,2 +1,10 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<h1>Zone: <%= @zone.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Code</td><td><%= @zone.code  %></td></tr>
+		<tr><td>Name</td><td><%= @zone.name  %></td></tr>
+		<tr><td>Description</td><td><%= @zone.description %></td></tr>
+	</table>
+	<%= link_to 'All Zones', zones_path %>
+</div>
+

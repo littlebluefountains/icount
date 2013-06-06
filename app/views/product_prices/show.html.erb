@@ -1,2 +1,11 @@
-<h1>ProductPrices#show</h1>
-<p>Find me in app/views/product_prices/show.html.erb</p>
+<h1>Prices for: <%= @product_price.product.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Product</td><td><%= @product_price.product.name %></td></tr>
+		<tr><td>Old Price</td><td><%= @product_price.old_price %></td></tr>
+		<tr><td>New Price</td><td><%= @product_price.new_price %></td></tr>
+		<tr><td>Date Changed</td><td><%= @product_price.created_at.strftime("%d/%m/%Y") %></td></tr>
+		<tr><td>Created By</td><td><%= @product_price.user_id %></td></tr>
+	</table>
+	<%= link_to 'All Product Prices', product_prices_path %>
+</div>

@@ -1,0 +1,32 @@
+<div class = "form-horizontal span6">
+	<%= simple_form_for @sale_meter_reading, :url => sales_approval_path, :method => 'post' do |f| %>
+		<fieldset>
+			<legend>Approval Details</legend>
+			<!--%= f.hidden_field :id, value: @sale_meter_reading.id %-->
+			<!--%= f.input :sales_reference_no, disabled: true %-->
+			<%= f.input :is_approved?, as: :select%>
+		</fieldset>
+		<fieldset>
+			<legend>Basic Information</legend>
+			<%= f.association :pump, disabled: true %>
+			<%= f.association :employee, disabled: true %>
+			<%= f.association :sales_period, disabled: true %>
+		</fieldset>
+
+		<fieldset>
+			<legend>Meter Reading Details</legend>
+			<%= f.input :opening_reading, disabled: true %>
+			<%= f.input :closing_reading, disabled: true %>
+			<%= f.input :sales_date, disabled: true %>
+		</fieldset>
+
+		
+
+		<div class='form-actions'>
+			<%= f.submit "Save", class: 'btn btn-primary' %>
+			<%= link_to "Back", list_sales_approval_path, class: 'btn btn-inverse' %>
+		</div>
+
+
+	<% end %>
+</div>

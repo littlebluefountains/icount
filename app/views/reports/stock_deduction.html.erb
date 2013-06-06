@@ -1,0 +1,51 @@
+<h1>Stock Reports For Tanks</h1>
+
+<div class="span8 well">
+	<h3>Recent Stock Deduction for Tank</h3>
+	<table class="table table-striped">
+		<tr>
+			<th>Tank</th>
+			<th>Station</th>
+			<th>Current Qty</th>
+			<th>Previous Qty</th>
+			<th>Qty Sold</th>
+			<th>Sales #</th>
+		</tr>
+		<% @deduct_unique_stocks.each do |stock|  %>
+			<tr>
+				<td><%= stock.tank.name %></td>
+				<td><%= stock.tank.station.name  %></td>
+				<td><%= stock.current_quantity %></td>
+				<td><%= stock.previous_quantity %></td>
+				<td><%= stock.quantity_deducted %></td>
+				<td><%= stock.sale_meter_reading.id %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+
+<div class="span8 well">
+	<h3>All Stocks</h3>
+	<table class="table table-striped">
+		<tr>
+			<th>Tank</th>
+			<th>Station</th>
+			<th>Current Qty</th>
+			<th>Previous Qty</th>
+			<th>Qty Added</th>
+			<th>Waybill #</th>
+			
+		</tr>
+		<% @deduct_stocks.each do |stock|  %>
+			<tr>
+				<td><%= stock.tank.name %></td>
+				<td><%= stock.tank.station.name  %></td>
+				<td><%= stock.current_quantity %></td>
+				<td><%= stock.previous_quantity %></td>
+				<td><%= stock.quantity_deducted %></td>
+				<td><%= stock.sale_meter_reading.id %></td>
+				
+			</tr>
+		<% end %>
+	</table>
+</div>

@@ -12,8 +12,8 @@
 		<tr>
 			<td><%= link_to sales_period.name, sales_period_path(sales_period) %></td>
 			<td><%= sales_period.description  %></td>
-			<td><%= sales_period.start_time  %></td>
-			<td><%= sales_period.end_time %></td>
+			<td><%= sales_period.start_time.strftime("%T") %></td>
+			<td><%= sales_period.end_time.strftime("%T") %></td>
 			<td><%= link_to raw('<i class="icon-edit"></i>'), edit_sales_period_path(sales_period), class: "btn btn-success" %> |
           <%= link_to raw('<i class="icon-trash"></i>'), sales_period, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger" %></td>
 		</tr>

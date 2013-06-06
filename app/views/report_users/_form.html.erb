@@ -9,8 +9,8 @@
       <%= f.input :name, placeholder: 'FirstName and LastName' %>
       <%= f.input :email, placeholder: 'Enter unique email' %>
       <%= f.input :phone, placeholder: 'Format: +2348055968687' %>
-      <%= f.input :receive_mail %>
-      <%= f.input :receive_sms %>
+      <%= f.input :receive_mail, as: :select %>
+      <%= f.input :receive_sms, as: :select %>
     </fieldset>
     
     <div class="form-actions">

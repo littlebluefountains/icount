@@ -3,7 +3,7 @@ class SaleMeterReadingsController < ApplicationController
 
   def index
   	#@sale_meter_readings = SaleMeterReading.all
-    @sale_meter_readings = SaleMeterReading.with_tanks_and_station
+    @sale_meter_readings = SaleMeterReading.with_pump
   end
 
   def new

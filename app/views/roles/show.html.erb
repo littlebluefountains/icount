@@ -1,15 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1>Role: <%= @role.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>User</td><td><%= @role.name  %></td></tr>
+		<tr><td>Email</td><td><%= @role.category  %></td></tr>
 
-<p>
-  <b>Role:</b>
-  <%= @role.name %>
-</p>
-<p>
-  <b>Category:</b>
-  <%= @role.category %>
-</p>
-
-
-<%= link_to 'All Roles', roles_path %> |
-<%= link_to 'Edit Role', edit_role_path(@role) %> |
-<%= link_to 'Delete Role', role_path(@role), :method => 'delete', :confirm => 'Are you sure?' %>
+	</table>
+	<%= link_to 'All Roles', roles_path %>
+</div>

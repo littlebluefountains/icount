@@ -1,2 +1,12 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
+<h1>Station: <%= @station.name %></h1>
+<div class="span6">
+	<table class="table table-striped table-bordered">
+		<tr><td>Code</td><td><%= @station.code  %></td></tr>
+		<tr><td>Name</td><td><%= @station.name  %></td></tr>
+		<tr><td>Zone</td><td><%= @station.zone.name %></td></tr>
+		<tr><td>Address</td><td><%= @station.full_address %></td></tr>
+		<tr><td>State</td><td><%= @station.state %></td></tr>
+	</table>
+	<%= link_to 'All Stations', stations_path %>
+</div>
+

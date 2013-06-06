@@ -13,6 +13,7 @@
   	body { padding-top: 60px; }
   	i{
   		display: inline-block;
+  		
   	}
   </style-->
 </head>
@@ -21,15 +22,16 @@
 	<!--div class="navbar navbar-fixed-top"-->
 	  <div class="navbar-inner">
 	    <div class="container">
-	      <a class="brand" href="/"><%= image_tag("logo.png", alt: "iCount", class: "pull-right") %>
-</a>
+	    	<a class="brand" href="/"><%= image_tag( set_logo , alt: "iCount", class: "pull-right") %></a>
+
 	      <!--ul class="nav">
 	        <li class="active"><a href="#"></a></li>
 	      </ul-->
 	      <p class="navbar-text pull-right">
 	        <% if user_signed_in? %>
 	          Logged in <strong><i class="icon-user"></i><%= current_user.username %></strong>.
-	          <!--%= link_to 'Edit profile', edit_user_password_path(current_user), :class => 'navbar-link' %--><a href="#">Edit Profile</a> |
+	          <!--%= link_to 'Edit profile', edit_user_password_path(current_user), :class => 'navbar-link' %>
+	          <a href="#">Edit Profile | </a--> 
 	          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 	        <% else %>
 	          <!--%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |-->

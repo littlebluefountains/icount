@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	before_save :update_product_price
+	before_save :update_product_price, :humanize_attributes
 	validates :name, :unitprice, presence: true
 	
   attr_accessible :code, :description, :name, :unitprice
@@ -24,6 +24,13 @@ class Product < ActiveRecord::Base
   	end
   end
 
+  #before saving, humanize all the string values
+  def humanize_attributes
+    write_attribute(:code, read_attribute(:code).upcase!)
+    write_attribute(:description, read_attribute(:description).humanize) unless :description.blank?
+    write_attribute(:name, read_attribute(:name).humanize)
+  end
+
   after_find do |product|
   	@old_price = product.unitprice
   end
@@ -31,6 +38,8 @@ class Product < ActiveRecord::Base
   after_initialize do |product|
   	@old_price = product.unitprice
   end
+
+
 
 
 end

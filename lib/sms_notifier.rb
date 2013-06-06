@@ -16,9 +16,13 @@ module SmsNotifier
 	def self.dipping_sms_summary(dipping)
 		@dipping = dipping
 
-		sms = "{DIPPING} Tank: "+@dipping.tank.code+"; Measured Volume: "+@dipping.measured_volume.to_s+"; Measuremend Date: "+@dipping.measurement_date.to_s
+		sms = "{DIPPING} Tank: "+@dipping.tank.code+"; Measured Volume: "+@dipping.measured_volume.to_s+"; Measurement Date: "+@dipping.measurement_date.to_s
 
 		send_sms(sms)
+	end
+
+	def method_name
+		
 	end
 
 	private
