@@ -13,6 +13,10 @@
 #Role.create([{name: 'Admin'}, {name: 'Manager'}, {name: 'SalesPerson'}])
 #user = User.create!(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
 
+#delete all the accounts
+Account.delete_all
+User.delete_all
+
 #create an Account for GAL
 account = Account.create!(name: 'GAL', subdomain: 'gal', website: 'www.granalturaltd.com', email: 'admin@gran-alturalimited.com')
 
