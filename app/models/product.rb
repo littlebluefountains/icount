@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
   #before saving, humanize all the string values
   def humanize_attributes
     write_attribute(:code, read_attribute(:code).upcase!)
-    write_attribute(:description, read_attribute(:description).humanize) unless :description.blank?
+    write_attribute(:description, read_attribute(:description).humanize) unless read_attribute(:description).blank?
     write_attribute(:name, read_attribute(:name).humanize)
   end
 

@@ -8,6 +8,6 @@ class SalesPeriod < ActiveRecord::Base
   private
   def humanize_attributes
   	write_attribute(:name, read_attribute(:name).upcase!)
-  	write_attribute(:description, read_attribute(:description).humanize)
+  	write_attribute(:description, read_attribute(:description).humanize) unless read_attribute(:description).blank?
   end
 end

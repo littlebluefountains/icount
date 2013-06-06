@@ -37,8 +37,8 @@ class Station < ActiveRecord::Base
   def humanize_attributes
     write_attribute(:code, read_attribute(:code).upcase!)
     write_attribute(:name, read_attribute(:name).humanize)
-    write_attribute(:state, read_attribute(:state).humanize) unless :state.blank?
-    write_attribute(:city, read_attribute(:city).humanize) unless :city.blank?
-    write_attribute(:address, read_attribute(:address).humanize) unless :address.blank?
+    write_attribute(:state, read_attribute(:state).humanize) unless read_attribute(:state).blank?
+    write_attribute(:city, read_attribute(:city).humanize) unless read_attribute(:city).blank?
+    write_attribute(:address, read_attribute(:address).humanize) unless read_attribute(:address).blank?
   end
 end

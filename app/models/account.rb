@@ -47,9 +47,9 @@ class Account < ActiveRecord::Base
   def humanize_attributes
     write_attribute(:name, read_attribute(:name).upcase!)
     write_attribute(:subdomain, read_attribute(:subdomain).downcase!)
-    write_attribute(:address, read_attribute(:address).humanize) unless :address.blank?
-    write_attribute(:website, read_attribute(:website).downcase!) unless :website.blank?
-    write_attribute(:email, read_attribute(:email).humanize) unless :email.blank?
+    write_attribute(:address, read_attribute(:address).humanize) unless read_attribute(:address).blank?
+    write_attribute(:website, read_attribute(:website).downcase!) unless read_attribute(:website).blank?
+    write_attribute(:email, read_attribute(:email).humanize) unless read_attribute(:email).blank?
   end
 
 end
