@@ -1,5 +1,5 @@
 read_attribute(class Zone < ActiveRecord::Base
-  before_save :humanize_attributes
+  #before_save :humanize_attributes
 
   validates :name, :code, presence: true
   

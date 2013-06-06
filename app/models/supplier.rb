@@ -1,5 +1,5 @@
 class Supplier < ActiveRecord::Base
-  before_save :humanize_attributes
+  #before_save :humanize_attributes
 
   validates :name, :contact, :address, presence: true
 	

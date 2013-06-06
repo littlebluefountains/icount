@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-	before_save :update_product_price, :humanize_attributes
+	before_save :update_product_price#, :humanize_attributes
 	validates :name, :unitprice, presence: true
 	
   attr_accessible :code, :description, :name, :unitprice

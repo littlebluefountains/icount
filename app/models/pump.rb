@@ -1,5 +1,5 @@
 class Pump < ActiveRecord::Base
-  before_save :humanize_attributes
+  #before_save :humanize_attributes
 
   validates :tank_id, :name, :code, presence: true
 	
