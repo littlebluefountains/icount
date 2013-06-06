@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  #before_save :humanize_attributes
+  before_save :humanize_attributes
 
   attr_accessible :address, :email, :name, :phone, :subdomain, :website
   attr_accessible :owner_attributes

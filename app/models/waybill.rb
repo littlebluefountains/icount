@@ -1,5 +1,5 @@
 class Waybill < ActiveRecord::Base
-	#before_save :humanize_attributes
+	before_save :humanize_attributes
 
   scope :with_station_and_product, includes(:station, :product)
 
@@ -25,9 +25,9 @@ class Waybill < ActiveRecord::Base
   private
   def humanize_attributes
   	write_attribute(:waybill_number, read_attribute(:waybill_number).upcase!)
-  	#write_attribute(:description, read_attribute(:description).humanize) unless :description.blank?
-  	#write_attribute(:tanker_driver, read_attribute(:tanker_driver).humanize) unless :tanker_driver.blank?
-  	#write_attribute(:tanker_registration, read_attribute(:tanker_registration).upcase!) unless :tanker_registration.blank?
-  	#write_attribute(:tanker_plate_no, read_attribute(:tanker_plate_no).upcase!) unless :tanker_plate_no.blank?
+  	write_attribute(:description, read_attribute(:description).humanize) unless :description.blank?
+  	write_attribute(:tanker_driver, read_attribute(:tanker_driver).humanize) unless :tanker_driver.blank?
+  	write_attribute(:tanker_registration, read_attribute(:tanker_registration).upcase!) unless :tanker_registration.blank?
+  	write_attribute(:tanker_plate_no, read_attribute(:tanker_plate_no).upcase!) unless :tanker_plate_no.blank?
   end
 end

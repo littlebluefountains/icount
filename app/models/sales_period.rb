@@ -1,5 +1,5 @@
 class SalesPeriod < ActiveRecord::Base
-	#before_save :humanize_attributes
+	before_save :humanize_attributes
 
 	validates :name, :start_time, :end_time, presence: true
 	
