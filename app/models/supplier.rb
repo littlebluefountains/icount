@@ -11,6 +11,6 @@ class Supplier < ActiveRecord::Base
   def humanize_attributes
   	write_attribute(:name, read_attribute(:name).humanize)
   	write_attribute(:contact, read_attribute(:contact).humanize) 
-  	write_attribute(:address, read_attribute(:address).humanize) unless :address.blank?
+  	write_attribute(:address, read_attribute(:address).humanize) unless read_attribute(:address).blank?
   end
 end
