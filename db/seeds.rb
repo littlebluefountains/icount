@@ -45,24 +45,41 @@
 	if s == "gal"
 		user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'true')
 		user.roles = [:super_admin]
-		init_account(account, user)
+		#init_account(account, user)
+		user.save!
+
+		account.owner = user
+		account.users << user
+
+		user.account = account
+
 	else
 		user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'false')
 		user.roles = [:admin]
-		init_account(account, user)
+		#init_account(account, user)
+		user.save!
+
+		account.owner = user
+		account.users << user
+
+		user.account = account
+
+		#account.save
 	end
-end
-
-def init_account(account, user)
-	user.save!
-
-	account.owner = user
-	account.users << user
-
-	user.account = account
 
 	account.save
 end
+
+# def init_account(account, user)
+# 	user.save!
+
+# 	account.owner = user
+# 	account.users << user
+
+# 	user.account = account
+
+# 	account.save
+# end
 
 
 
