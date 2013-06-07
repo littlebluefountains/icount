@@ -37,8 +37,11 @@
 
 # account.save
 
+#get a connection
+conn = ActiveRecord::Base.connection
+
 ["admin", "fatgbem", "abeembolak", "bambol", "granalturaoil"].each do	|s|
-	execute "DROP SCHEMA IF EXISTS #{s}"
+	conn.execute "DROP SCHEMA IF EXISTS #{s}"
 
 	account = Account.create!(name: "#{s.upcase}", subdomain: "#{s}", website: "'www.#{s}.com'", email: "admin@#{s}.com")
 	account.create_schema
