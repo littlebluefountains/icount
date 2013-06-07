@@ -17,8 +17,8 @@ class Account < ActiveRecord::Base
   def self.create_with_owner(params={})
   	account = new(params)
 
-  	create_roles	#verify that roles exist
-  	admin_role = Role.where(name: "Admin")
+  	#create_roles	#verify that roles exist
+  	#admin_role = Role.where(name: "Admin")
 
   	if account.save
   		#account.owner.roles << admin_role	#assign admin role to the user

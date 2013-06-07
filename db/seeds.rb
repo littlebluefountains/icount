@@ -14,8 +14,8 @@
 #user = User.create!(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
 
 #delete all the accounts
-Account.delete_all
-User.delete_all
+#Account.delete_all
+#User.delete_all
 
 #create an Account for GAL
 #account = Account.create!(name: 'GAL', subdomain: 'gal', website: 'www.granalturaltd.com', email: 'admin@gran-alturalimited.com')
@@ -23,14 +23,21 @@ User.delete_all
 #user = User.new(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
 
 account = Account.create!(name: 'Example', subdomain: 'example', website: 'www.example.com', email: 'admin@example.com')
+account.create_schema
 
 #create user
 user = User.new(username: 'example_admin', password: '12345678', email: 'example.admin@example.com', super_admin: 'true')
+user.roles = [:super_admin]
+user.save!
+
+account.owner = user
+account.users << user
 
 user.account = account
 
+
+
 #assign Admin role to user
 #user.roles << Role.find_by_name('Admin')
-user.roles = [:super_admin]
 
-user.save!
+
