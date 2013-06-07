@@ -22,20 +22,47 @@
 #create user
 #user = User.new(username: 'gal_admin', password: '12345678', email: 'gal.admin@gal.com', super_admin: 'true')
 
-account = Account.create!(name: 'Example', subdomain: 'example', website: 'www.example.com', email: 'admin@example.com')
-account.create_schema
+# account = Account.create!(name: 'Example', subdomain: 'example', website: 'www.example.com', email: 'admin@example.com')
+# account.create_schema
 
-#create user
-user = User.new(username: 'example_admin', password: '12345678', email: 'example.admin@example.com', super_admin: 'true')
-user.roles = [:super_admin]
-user.save!
+# #create user
+# user = User.new(username: 'example_admin', password: '12345678', email: 'example.admin@example.com', super_admin: 'true')
+# user.roles = [:super_admin]
+# user.save!
 
-account.owner = user
-account.users << user
+# account.owner = user
+# account.users << user
 
-user.account = account
+# user.account = account
 
-account.save
+# account.save
+
+["gal", "fatgbem", "abeembolak", "bambol", "granalturaoil"].each do	|s|
+	account = Account.create!(name: "#{s.upcase}", subdomain: "#{s}", website: "'www.#{s}.com'", email: "admin@#{s}.com")
+	account.create_schema
+
+	#create user
+	if s == "gal"
+		user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'true')
+		user.roles = [:super_admin]
+		init_account(account, user)
+	else
+		user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'false')
+		user.roles = [:admin]
+		init_account(account, user)
+	end
+end
+
+def init_account(account, user)
+	user.save!
+
+	account.owner = user
+	account.users << user
+
+	user.account = account
+
+	account.save
+end
 
 
 
