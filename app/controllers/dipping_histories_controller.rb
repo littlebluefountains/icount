@@ -6,7 +6,7 @@ class DippingHistoriesController < ApplicationController
   require 'sms_notifier'
 
   def index
-  	@dipping_histories = DippingHistory.all
+  	@dipping_histories = DippingHistory.all  || []
   end
 
   def show

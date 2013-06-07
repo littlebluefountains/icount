@@ -29,7 +29,8 @@ class Account < ActiveRecord::Base
   end
 
   def create_schema
-  	Apartment::Database.create(subdomain)
+  	#Apartment::Database.create(:subdomain)
+    Apartment::Database.create(subdomain)
   end
 
   def owner?(user)

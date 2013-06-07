@@ -5,7 +5,7 @@ class SalesApprovalController < ApplicationController
 
   def index
   	#@sale_meter_readings = SaleMeterReading.all
-    @sale_meter_readings = SaleMeterReading.with_pump
+    @sale_meter_readings = SaleMeterReading.with_pump  || []
   end
 
   def show

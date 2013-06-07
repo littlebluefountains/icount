@@ -5,7 +5,7 @@ class WaybillApprovalsController < ApplicationController
 
   def index
   	#@waybill_approvals = Waybill.includes(:stock_additions).all
-    @waybill_approvals = Waybill.with_station_and_product
+    @waybill_approvals = Waybill.with_station_and_product  || []
   end
 
   def edit

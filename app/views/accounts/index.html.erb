@@ -20,7 +20,7 @@
       <td><%=  account.phone %></td>
       <td><%=  account.website %></td>
       <td><%=  account.address %></td> 
-      <% if account.name != "GAL" %>
+      <% if account.name != "GAL" || account.name != "ADMIN" %>
           <td><%= link_to raw('<i class="icon-edit"></i>'), edit_account_path(account), class: "btn btn-success" %> 
             | <%= link_to raw('<i class="icon-trash"></i>'), account, :confirm => 'Are you sure?', :method => :delete, class: "btn btn-danger" %>
           </td>
