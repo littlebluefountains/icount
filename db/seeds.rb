@@ -35,6 +35,8 @@ account.users << user
 
 user.account = account
 
+account.save
+
 
 
 #assign Admin role to user

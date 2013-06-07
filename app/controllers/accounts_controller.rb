@@ -1,4 +1,6 @@
 class AccountsController < ApplicationController
+	load_and_authorize_resource
+	
 	before_filter :startup, except: [:index, :new, :create]
 
 	def index
