@@ -41,7 +41,7 @@
 conn = ActiveRecord::Base.connection
 
 ["admin", "fatgbem", "abeembolak", "bambol", "granalturaoil"].each do	|s|
-	conn.execute "DROP SCHEMA IF EXISTS #{s}"
+	conn.execute "DROP SCHEMA IF EXISTS #{s} CASCADE"
 
 	account = Account.create!(name: "#{s.upcase}", subdomain: "#{s}", website: "'www.#{s}.com'", email: "admin@#{s}.com")
 	account.create_schema
