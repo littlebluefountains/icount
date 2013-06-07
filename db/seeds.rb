@@ -37,13 +37,15 @@
 
 # account.save
 
-["gal", "fatgbem", "abeembolak", "bambol", "granalturaoil"].each do	|s|
+["admin", "fatgbem", "abeembolak", "bambol", "granalturaoil"].each do	|s|
 	account = Account.create!(name: "#{s.upcase}", subdomain: "#{s}", website: "'www.#{s}.com'", email: "admin@#{s}.com")
 	account.create_schema
 
 	#create user
-	if s == "gal"
-		user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'true')
+	#if s == "gal"
+	if s == "admin"
+		#user = User.new(username: "#{s}_admin", password: '12345678', email: "admin@#{s}.com", super_admin: 'true')
+		user = User.new(username: "gal_admin", password: '12345678', email: "admin@#gran-alturalimited.com", super_admin: 'true')
 		user.roles = [:super_admin]
 		#init_account(account, user)
 		user.save!

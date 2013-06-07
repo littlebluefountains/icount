@@ -8,7 +8,7 @@ Apartment.configure do |config|
 	config.database_names = lambda{ Account.pluck(:subdomain)}	#use subdomains to create databases
 
 	# #use a static list of database names to migrate
-	config.database_names = ["gal", "fatgbem", "abeembolak", "bambol", "granalturaoil"]
+	config.database_names = ["gal", "fatgbem", "abeembolak", "bambol", "granalturaoil", "admin"]
 
 	# #disable appending environment name to database
 	# config.prepend_environment = !Rails.env.production?

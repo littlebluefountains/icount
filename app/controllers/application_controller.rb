@@ -39,13 +39,23 @@ class ApplicationController < ActionController::Base
     #method to set logo based on subdomain
     def set_logo
       logo = ""
-      if request.subdomain.present? && request.subdomain == "example"
+      # if request.subdomain.present? && request.subdomain == "example"
+      #   logo = "gal_logo.png"
+      # elsif request.subdomain.present? && request.subdomain == "example"
+      #   logo = "gal_logo.png"
+      # elsif request.subdomain.present? 
+      #   logo += request.subdomain
+      #   logo += "_logo.png"
+      # else
+      #   logo = "gal_logo.png"
+      # end
+
+      case request.subdomain
+      when 'www', 'example', 'gal', 'admin', '', nil
         logo = "gal_logo.png"
-      elsif request.subdomain.present? 
+      else
         logo += request.subdomain
         logo += "_logo.png"
-      else
-        logo = "gal_logo.png"
       end
       #logo += "logo.png"
       # logo += "logo.jpg"
